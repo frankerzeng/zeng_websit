@@ -58,11 +58,13 @@
 	var Input = __webpack_require__(174);
 	var DataFlow = __webpack_require__(175);
 	var TickTock = __webpack_require__(176);
+	var ProtypesTest = __webpack_require__(177);
 
 	React1.render(React.createElement(AppComponent, null), document.getElementById('content'));
 	React1.render(React.createElement(Input, null), document.getElementById('input'));
 	React1.render(React.createElement(DataFlow, { items: ["apple", "Banana"] }), document.getElementById("test"));
 	React1.render(React.createElement(TickTock, { data: "adta" }), document.getElementById('example'));
+	React1.render(React.createElement(ProtypesTest, { title: datatitle }), document.getElementById('protypesTest'));
 
 /***/ },
 /* 2 */
@@ -21507,6 +21509,25 @@
 	});
 
 	module.exports = TickTock;
+
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(2);
+	var ProductBox = React.createClass({ displayName: "ProductBox",
+
+	    propTypes: {
+	        title: React.PropTypes.string.isRequired
+	    },
+
+	    render: function () {
+	        return React.createElement("h1", null, this.props.title);
+	    }
+
+	});
+
+	module.exports = ProductBox;
 
 /***/ }
 /******/ ]);
