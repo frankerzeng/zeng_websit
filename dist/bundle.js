@@ -57,10 +57,12 @@
 	var AppComponent = __webpack_require__(173);
 	var Input = __webpack_require__(174);
 	var DataFlow = __webpack_require__(175);
+	var TickTock = __webpack_require__(176);
 
 	React1.render(React.createElement(AppComponent, null), document.getElementById('content'));
 	React1.render(React.createElement(Input, null), document.getElementById('input'));
 	React1.render(React.createElement(DataFlow, { items: ["apple", "Banana"] }), document.getElementById("test"));
+	React1.render(React.createElement(TickTock, { data: "adta" }), document.getElementById('example'));
 
 /***/ },
 /* 2 */
@@ -21454,7 +21456,7 @@
 /* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// 父元素向子元素传递
+	// 组件间的通信（父元素向子元素传递）
 	var React = __webpack_require__(2);
 
 	var ProductBox = React.createClass({ displayName: "ProductBox",
@@ -21470,6 +21472,41 @@
 	});
 
 	module.exports = ProductBox;
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(2);
+	var SetIntervalMixin = {
+	    componentWillMount: function () {
+	        this.intervals = [];
+	    },
+	    setInterval: function () {
+	        this.intervals.push(setInterval.apply(null, arguments));
+	    },
+	    componentWillUnmount: function () {
+	        this.intervals.map(clearInterval);
+	    }
+	};
+
+	var TickTock = React.createClass({ displayName: "TickTock",
+	    mixins: [SetIntervalMixin], // Use the mixin
+	    getInitialState: function () {
+	        return { seconds: 0 };
+	    },
+	    componentDidMount: function () {
+	        this.setInterval(this.tick, 1000); // Call a method on the mixin
+	    },
+	    tick: function () {
+	        this.setState({ seconds: this.state.seconds + 1 });
+	    },
+	    render: function () {
+	        return React.createElement("p", null, "React has been running for ", this.state.seconds, this.props.data, " seconds.");
+	    }
+	});
+
+	module.exports = TickTock;
 
 /***/ }
 /******/ ]);
