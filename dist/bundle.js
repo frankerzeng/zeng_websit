@@ -53,9 +53,14 @@
 
 	var React = __webpack_require__(2);
 	var React1 = __webpack_require__(35);
-	var dd = 0;
+
 	var AppComponent = __webpack_require__(173);
+	var Input = __webpack_require__(174);
+	var DataFlow = __webpack_require__(175);
+
 	React1.render(React.createElement(AppComponent, null), document.getElementById('content'));
+	React1.render(React.createElement(Input, null), document.getElementById('input'));
+	React1.render(React.createElement(DataFlow, { items: ["apple", "Banana"] }), document.getElementById("test"));
 
 /***/ },
 /* 2 */
@@ -21408,9 +21413,59 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(2);
+
 	var ProductBox = React.createClass({ displayName: "ProductBox",
 	    render: function () {
-	        return React.createElement("div", { className: "ProductBox" }, "Hello Worlgfdddd!");
+	        return React.createElement("div", { className: "ProductBox" }, "Hello Worlgfffdddd!");
+	    }
+	});
+
+	module.exports = ProductBox;
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(2);
+	var ProductBox = React.createClass({ displayName: "ProductBox",
+	    getInitialState: function () {
+	        return { userInput: '' };
+	    },
+	    handleChange: function (e) {
+	        this.setState({ userInput: e.target.value });
+	    },
+	    clearAndFocusInput: function () {
+	        this.setState({ userInput: '' }, function () {
+	            // This code executes after the component is re-rendered
+	            this.refs.theInput.focus();
+	        });
+	    },
+	    render: function () {
+	        return React.createElement("div", null, React.createElement("div", { onClick: this.clearAndFocusInput }, "Click to Focus and Reset"), React.createElement("input", {
+	            ref: "theInput",
+	            value: this.state.userInput,
+	            onChange: this.handleChange }));
+	    }
+	});
+
+	module.exports = ProductBox;
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 父元素向子元素传递
+	var React = __webpack_require__(2);
+
+	var ProductBox = React.createClass({ displayName: "ProductBox",
+	    handleClick: function (i) {
+	        console.log('you clicked:' + this.props.items[i]);
+	    },
+
+	    render: function () {
+	        return React.createElement("div", null, this.props.items.map(function (item, i) {
+	            return React.createElement("div", { key: i, onClick: this.handleClick.bind(this, i) }, item);
+	        }, this));
 	    }
 	});
 
