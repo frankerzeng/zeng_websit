@@ -11,4 +11,4 @@ React1.render(<AppComponent />, document.getElementById('content'));
 React1.render(<Input />, document.getElementById('input'));
 React1.render(<DataFlow items={["apple", "Banana"]}/>, document.getElementById("test"));
 React1.render(<TickTock data="adta"/>, document.getElementById('example'));
-React1.render(<ProtypesTest title={datatitle}/>, document.getElementById('protypesTest'));
+React1.render(<ProtypesTest title={123}/>, document.getElementById('protypesTest'));
