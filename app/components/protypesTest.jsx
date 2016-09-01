@@ -6,6 +6,7 @@ var ProductBox = React.createClass({
         }
     },
 
+
     propTypes: {
         title: React.PropTypes.any.isRequired,
         name: React.PropTypes.string.isRequired,
