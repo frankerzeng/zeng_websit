@@ -21516,13 +21516,19 @@
 
 	var React = __webpack_require__(2);
 	var ProductBox = React.createClass({ displayName: "ProductBox",
+	    getDefaultProps: function () {
+	        return {
+	            name: "string name"
+	        };
+	    },
 
 	    propTypes: {
-	        title: React.PropTypes.any.isRequired
+	        title: React.PropTypes.any.isRequired,
+	        name: React.PropTypes.string.isRequired
 	    },
 
 	    render: function () {
-	        return React.createElement("h1", null, this.props.title);
+	        return React.createElement("h1", null, this.props.title, this.props.name);
 	    }
 
 	});
