@@ -64,7 +64,7 @@
 	React1.render(React.createElement(Input, null), document.getElementById('input'));
 	React1.render(React.createElement(DataFlow, { items: ["apple", "Banana"] }), document.getElementById("test"));
 	React1.render(React.createElement(TickTock, { data: "adta" }), document.getElementById('example'));
-	React1.render(React.createElement(ProtypesTest, { title: datatitle }), document.getElementById('protypesTest'));
+	React1.render(React.createElement(ProtypesTest, { title: 123 }), document.getElementById('protypesTest'));
 
 /***/ },
 /* 2 */
@@ -21518,7 +21518,7 @@
 	var ProductBox = React.createClass({ displayName: "ProductBox",
 
 	    propTypes: {
-	        title: React.PropTypes.string.isRequired
+	        title: React.PropTypes.any.isRequired
 	    },
 
 	    render: function () {
