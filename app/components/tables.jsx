@@ -13,6 +13,7 @@ var Ajax = React.createClass({
         console.log(event);
         console.log("attribute-");
         console.log(event.target.getAttribute("value"));
+        console.log(this.props.foo);
         this.setState({value: event.target.value})
     },
 

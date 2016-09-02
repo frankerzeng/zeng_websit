@@ -74,7 +74,12 @@
 	React1.render(React.createElement(RealDom, null), document.getElementById('realDom'));
 	React1.render(React.createElement(Lifecycle, null), document.getElementById('Lifecycle'));
 	React1.render(React.createElement(Ajax, null), document.getElementById('Ajax'));
-	React1.render(React.createElement(Tables, null), document.getElementById('tables'));
+
+	var multprops = {};
+	multprops.foo = ";";
+	multprops.bar = ";d";
+
+	React1.render(React.createElement(Tables, React.__spread({}, multprops)), document.getElementById('tables'));
 
 /***/ },
 /* 2 */
@@ -23306,6 +23311,7 @@
 	        console.log(event);
 	        console.log("attribute-");
 	        console.log(event.target.getAttribute("value"));
+	        console.log(this.props.foo);
 	        this.setState({ value: event.target.value });
 	    },
 

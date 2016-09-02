@@ -21,4 +21,9 @@ React1.render(<StateTest />, document.getElementById('StateTest'));
 React1.render(<RealDom />, document.getElementById('realDom'));
 React1.render(<Lifecycle />, document.getElementById('Lifecycle'));
 React1.render(<Ajax />, document.getElementById('Ajax'));
-React1.render(<Tables />, document.getElementById('tables'));
+
+var multprops = {};
+multprops.foo = ";";
+multprops.bar = ";d";
+
+React1.render(<Tables {...multprops} foo="sd"/>, document.getElementById('tables'));
