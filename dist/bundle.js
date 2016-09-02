@@ -61,7 +61,6 @@
 	var ProtypesTest = __webpack_require__(177);
 	var StateTest = __webpack_require__(178);
 	var RealDom = __webpack_require__(179);
-	var RealDom = __webpack_require__(179);
 	var Lifecycle = __webpack_require__(180);
 	var Ajax = __webpack_require__(181);
 	var Tables = __webpack_require__(183);
@@ -23297,7 +23296,8 @@
 	var Ajax = React.createClass({ displayName: "Ajax",
 	    getInitialState: function () {
 	        return {
-	            value: "hhhhhhh"
+	            value: "hhhhhhh",
+	            selectValue: "b"
 	        };
 	    },
 
@@ -23308,15 +23308,13 @@
 	        console.log(event.target.getAttribute("value"));
 	        this.setState({ value: event.target.value });
 	    },
-	    handleChangeSelect: function (event) {
-	        this.setState({ value: event.target.value });
-	    },
 
 	    render: function () {
 	        var value = this.state.value;
+	        var selectValue = this.state.selectValue;
 	        return (
 	            // input 的value是受控组件，只能通过react来更改
-	            React.createElement("div", null, React.createElement("input", { type: "text", value: value, onChange: this.handleChange }), React.createElement("select", { value: "b", onChange: this.handleChangeSelect }, React.createElement("option", { value: "a" }, " a"), React.createElement("option", { value: "b" }, " b")))
+	            React.createElement("div", null, React.createElement("input", { type: "text", value: value, onChange: this.handleChange }))
 	        );
 	    }
 	});

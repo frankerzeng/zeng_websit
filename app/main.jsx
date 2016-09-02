@@ -8,7 +8,6 @@ var TickTock = require('./components/mixins.jsx');
 var ProtypesTest = require('./components/protypesTest.jsx');
 var StateTest = require('./components/stateTest.jsx');
 var RealDom = require('./components/realDom.jsx');
-var RealDom = require('./components/realDom.jsx');
 var Lifecycle = require('./components/Lifecycle.jsx');
 var Ajax = require('./components/Ajax.jsx');
 var Tables = require('./components/tables.jsx');
