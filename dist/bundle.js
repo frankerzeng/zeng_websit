@@ -79,7 +79,7 @@
 	multprops.foo = ";";
 	multprops.bar = ";d";
 
-	React1.render(React.createElement(Tables, React.__spread({}, multprops)), document.getElementById('tables'));
+	React1.render(React.createElement(Tables, React.__spread({}, multprops, { foo: "sd" })), document.getElementById('tables'));
 
 /***/ },
 /* 2 */
@@ -21537,6 +21537,7 @@
 	        };
 	    },
 
+	    // props校验
 	    propTypes: {
 	        title: React.PropTypes.any.isRequired,
 	        name: React.PropTypes.string.isRequired
@@ -23306,12 +23307,21 @@
 	        };
 	    },
 
+	    getDefaultProps: function () {
+	        return {
+	            foo: "11",
+	            key: 'ss'
+	        };
+	    },
+
 	    handleChange: function (event) {
 	        console.log('event-');
 	        console.log(event);
 	        console.log("attribute-");
 	        console.log(event.target.getAttribute("value"));
 	        console.log(this.props.foo);
+	        console.log('this.props.foo' + '======');
+	        console.log(this.props.key);
 	        this.setState({ value: event.target.value });
 	    },
 
@@ -23320,7 +23330,7 @@
 	        var selectValue = this.state.selectValue;
 	        return (
 	            // input 的value是受控组件，只能通过react来更改
-	            React.createElement("div", null, React.createElement("input", { type: "text", value: value, onChange: this.handleChange }))
+	            React.createElement("div", null, React.createElement("input", { type: "text", value: value, onChange: this.handleChange }), React.createElement("div", null, " html 实体"), React.createElement("div", null, " html 实体·"), React.createElement("div", { dangerouslySetInnerHTML: { __html: 'First &middot; Second' } }))
 	        );
 	    }
 	});

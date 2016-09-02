@@ -8,12 +8,21 @@ var Ajax = React.createClass({
         };
     },
 
+    getDefaultProps(){
+        return {
+            foo: "11",
+            key: 'ss'
+        }
+    },
+
     handleChange: function (event) {
         console.log('event-');
         console.log(event);
         console.log("attribute-");
         console.log(event.target.getAttribute("value"));
         console.log(this.props.foo);
+        console.log('this.props.foo' + '======');
+        console.log(this.props.key);
         this.setState({value: event.target.value})
     },
 
@@ -24,6 +33,9 @@ var Ajax = React.createClass({
             // input 的value是受控组件，只能通过react来更改
             <div>
                 <input type="text" value={value} onChange={this.handleChange}/>
+                <div> html 实体</div>
+                <div> html 实体&middot;</div>
+                <div dangerouslySetInnerHTML={{__html: 'First &middot; Second'}}/>
             </div>
         );
     }
