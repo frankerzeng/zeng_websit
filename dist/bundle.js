@@ -21589,7 +21589,7 @@
 	    },
 
 	    render: function () {
-	        return React.createElement("div", null, React.createElement("input", { type: "text", ref: "myTextInput", value: "dd", onChange: this.handleClick }), React.createElement("input", { type: "button", value: "focus input", onClick: this.handleClick }));
+	        return React.createElement("div", null, React.createElement("input", { type: "text", ref: "myTextInput" }), React.createElement("input", { type: "button", value: "focus input", onClick: this.handleClick }));
 	    }
 
 	});
@@ -23304,6 +23304,11 @@
 	    handleChange: function (event) {
 	        console.log('event-');
 	        console.log(event);
+	        console.log("attribute-");
+	        console.log(event.target.getAttribute("value"));
+	        this.setState({ value: event.target.value });
+	    },
+	    handleChangeSelect: function (event) {
 	        this.setState({ value: event.target.value });
 	    },
 
@@ -23311,7 +23316,7 @@
 	        var value = this.state.value;
 	        return (
 	            // input 的value是受控组件，只能通过react来更改
-	            React.createElement("input", { type: "text", value: value, onChange: this.handleChange })
+	            React.createElement("div", null, React.createElement("input", { type: "text", value: value, onChange: this.handleChange }), React.createElement("select", { value: "b", onChange: this.handleChangeSelect }, React.createElement("option", { value: "a" }, " a"), React.createElement("option", { value: "b" }, " b")))
 	        );
 	    }
 	});
