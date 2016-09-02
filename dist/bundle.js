@@ -23315,6 +23315,21 @@
 	    },
 
 	    handleChange: function (event) {
+	        // other 用法
+	        var $__0 = this.props,
+	            value = $__0.value,
+	            other = function (source, exclusion) {
+	            var rest = {};var hasOwn = Object.prototype.hasOwnProperty;if (source == null) {
+	                throw new TypeError();
+	            }for (var key in source) {
+	                if (hasOwn.call(source, key) && !hasOwn.call(exclusion, key)) {
+	                    rest[key] = source[key];
+	                }
+	            }return rest;
+	        }($__0, { value: 1 });
+	        console.log("other=====");
+	        console.log(other);
+
 	        console.log('event-');
 	        console.log(event);
 	        console.log("attribute-");

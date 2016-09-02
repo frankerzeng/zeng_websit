@@ -16,6 +16,12 @@ var Ajax = React.createClass({
     },
 
     handleChange: function (event) {
+        // other 用法
+        var {value, ...other} = this.props;
+        console.log("other=====");
+        console.log(other);
+
+
         console.log('event-');
         console.log(event);
         console.log("attribute-");
