@@ -21,7 +21,6 @@ var Ajax = React.createClass({
         console.log("other=====");
         console.log(other);
 
-
         console.log('event-');
         console.log(event);
         console.log("attribute-");
@@ -35,7 +34,9 @@ var Ajax = React.createClass({
     render: function () {
         var value = this.state.value;
         var selectValue = this.state.selectValue;
+
         return (
+
             // input 的value是受控组件，只能通过react来更改
             <div>
                 <input type="text" value={value} onChange={this.handleChange}/>
