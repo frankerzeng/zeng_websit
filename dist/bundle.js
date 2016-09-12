@@ -23343,7 +23343,9 @@
 	    render: function () {
 	        var value = this.state.value;
 	        var selectValue = this.state.selectValue;
+
 	        return (
+
 	            // input 的value是受控组件，只能通过react来更改
 	            React.createElement("div", null, React.createElement("input", { type: "text", value: value, onChange: this.handleChange }), React.createElement("div", null, " html 实体"), React.createElement("div", null, " html 实体·"), React.createElement("div", { dangerouslySetInnerHTML: { __html: 'First &middot; Second' } }))
 	        );
