@@ -21431,7 +21431,7 @@
 	    },
 
 	    render: function () {
-	        return React.createElement("li", null, React.createElement("li", { class: "active" }, React.createElement("a", { href: "#" }, this.state.data)), React.createElement("li", null, React.createElement("a", { href: "#" }, "Link")));
+	        return React.createElement("ul", { className: "nav navbar-nav" }, React.createElement("li", { className: "active" }, React.createElement("a", { href: "#" }, this.state.data)), React.createElement("li", null, React.createElement("a", { href: "#" }, "Link")), React.createElement("li", { className: "dropdown" }, React.createElement("a", { href: "#", className: "dropdown-toggle", "data-toggle": "dropdown" }, "Dropdown ", React.createElement("span", { className: "caret" })), React.createElement("ul", { className: "dropdown-menu", role: "menu" }, React.createElement("li", null, React.createElement("a", { href: "#" }, "Action")), React.createElement("li", null, React.createElement("a", { href: "#" }, "Another action")), React.createElement("li", null, React.createElement("a", { href: "#" }, "Something else here")), React.createElement("li", { className: "divider" }), React.createElement("li", null, React.createElement("a", { href: "#" }, "Separated link")), React.createElement("li", { className: "divider" }), React.createElement("li", null, React.createElement("a", { href: "#" }, "One more separated link")))));
 	    }
 	});
 
