@@ -23337,6 +23337,7 @@
 	        console.log(this.props.foo);
 	        console.log('this.props.foo' + '======');
 	        console.log(this.props.key);
+	        console.log("test git push");
 	        this.setState({ value: event.target.value });
 	    },
 
