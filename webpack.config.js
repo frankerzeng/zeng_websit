@@ -2,13 +2,14 @@ var path = require('path');
 
 module.exports = {
 
-    entry:[
-        path.resolve(__dirname, './app/main.jsx'),
-    ],
+    entry: {
+        main: ['./app/main.jsx'],
+        index: ['./app/index.jsx'],
+    },
 
     output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'bundle.js'
+        path: './dist',
+        filename: '[name].js'
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
