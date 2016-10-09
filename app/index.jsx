@@ -18,3 +18,10 @@ ReactDom.render((
         <Route path="/" component={Chapter}/>
     </Router>
 ), document.getElementById('chapterId'));
+
+// 文章//todo
+ReactDom.render((
+    <Router history={hashHistory}>
+        <Route path="/article" component={Chapter}/>
+    </Router>
+), document.getElementById('chapterId'));
