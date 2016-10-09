@@ -1,28 +1,35 @@
-var _Card = require('antd/lib/card');
-
 var React = require('react');
+var _Card = require('antd/lib/card');
 var $ = require('jquery');
+
 var Page = require('../comm/page.jsx');
 
 var chapter = React.createClass({
 
     getInitialState: function () {
-        return {
-            data: 10
-        };
+        return {data: 10};
     },
 
     componentDidMount: function () {
+        this.getData();
+        // PubSub.subscribe('change page', this.onChangePage());
+    },
+
+    getData: function (param) {
         var url = "http://la.cn/resource";
         var a = $.get(url, function (resp) {
-            console.log("-------");
+            console.log("-------chapter ajax");
             console.log(resp);
             if (this.isMounted()) {
                 this.setState({
                     data: resp[0]
                 });
             }
-        }.bind(this))
+        }.bind(this));
+    },
+
+    onChangePage: function (page) {
+        this.getData(page);
     },
 
     render: function () {
@@ -41,8 +48,8 @@ var chapter = React.createClass({
         return (
             <div style={{background: '#ECECEC', padding: '30px', height: "inherit"}}>
                 {item}
-                <div style={{"margin-top": "20px"}}>
-                    <Page page_total={this.data}/>
+                <div style={{margin: "20px 0px 0px 0px", float: "left", width: "100%"}}>
+                    <Page page={{pageSize: 20, total: this.state.data}} onChangePage={this.onChangePage}/>
                 </div>
             </div>
         );
