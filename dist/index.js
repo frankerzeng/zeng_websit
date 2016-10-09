@@ -23105,7 +23105,9 @@
 	    render: function () {
 	        var item = [];
 	        for (var i = 0; i < 20; i++) {
-	            item.push(React.createElement("div", { key: i, style: { float: "left", padding: "10px 10px 0px 0px" } }, React.createElement(_Card, { title: "标题快快快", extra: React.createElement("a", { href: "#" }, "详情"), bordered: true, style: { width: 300 } }, React.createElement("p", null, "Card content"), React.createElement("p", null, "Card content"), React.createElement("p", null, "Card content"))));
+	            var href = "/chapter?" + i;
+	            item.push(React.createElement("div", { key: i, style: { float: "left", padding: "10px 10px 0px 0px" } }, React.createElement(_Card, { title: "标题快快快", extra: React.createElement("a", { href: href }, "详情"), bordered: true,
+	                style: { width: 300 } }, React.createElement("p", null, "Card content"), React.createElement("p", null, "Card content"), React.createElement("p", null, "Card content"))));
 	        }
 	        return React.createElement("div", { style: { background: '#ECECEC', padding: '30px', height: "inherit" } }, item, React.createElement("div", { style: { margin: "20px 0px 0px 0px", float: "left", width: "100%" } }, React.createElement(Page, { page: { pageSize: 20, total: this.state.data }, onChangePage: this.onChangePage })));
 	    }
@@ -24400,8 +24402,7 @@
 	    render: function () {
 	        console.log("--=======");
 	        console.log(this.props);
-	        return React.createElement(_Pagination, { total: this.props.page.total, pageSize: this.props.page.pageSize,
-	            onChange: this.onChange });
+	        return React.createElement(_Pagination, { total: this.props.page.total, pageSize: this.props.page.pageSize, onChange: this.onChange });
 	    }
 	});
 
