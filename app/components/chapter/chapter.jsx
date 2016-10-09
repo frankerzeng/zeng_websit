@@ -35,7 +35,7 @@ var chapter = React.createClass({
     render: function () {
         var item = [];
         for (var i = 0; i < 20; i++) {
-            var href = "/article?articleId=" + i;
+            var href = "zeng/dist/article?articleId=" + i;
             item.push(
                 <div key={i} style={{float: "left", padding: "10px 10px 0px 0px"}}>
                     <_Card title="标题快快快" extra={<a href={href}>详情</a>} bordered={true}
