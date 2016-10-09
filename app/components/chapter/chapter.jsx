@@ -2,13 +2,13 @@ var _Card = require('antd/lib/card');
 
 var React = require('react');
 var $ = require('jquery');
-require('antd/dist/antd.css');
+var Page = require('../comm/page.jsx');
 
 var chapter = React.createClass({
 
     getInitialState: function () {
         return {
-            data: ""
+            data: 10
         };
     },
 
@@ -29,7 +29,7 @@ var chapter = React.createClass({
         var item = [];
         for (var i = 0; i < 20; i++) {
             item.push(
-                <div key={i}  style={{float: "left", padding: "10px 10px 0px 0px"}}>
+                <div key={i} style={{float: "left", padding: "10px 10px 0px 0px"}}>
                     <_Card title="标题快快快" extra={<a href="#">详情</a>} bordered={true} style={{width: 300}}>
                         <p>Card content</p>
                         <p>Card content</p>
@@ -41,6 +41,9 @@ var chapter = React.createClass({
         return (
             <div style={{background: '#ECECEC', padding: '30px', height: "inherit"}}>
                 {item}
+                <div style={{"margin-top": "20px"}}>
+                    <Page page_total={this.data}/>
+                </div>
             </div>
         );
     }

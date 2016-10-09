@@ -25,9 +25,14 @@ var Page = React.createClass({
         }.bind(this))
     },
 
+    onChange:function (page) {
+        console.log('------------------');
+        console.log(page);
+    },
+
     render: function () {
         return (
-            <_Pagination defaultCurrent={1} total={50} />
+            <_Pagination defaultCurrent={1} total={50} onChange={this.onChange}/>
         );
     }
 });
