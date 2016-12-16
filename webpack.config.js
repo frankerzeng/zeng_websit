@@ -4,7 +4,7 @@ module.exports = {
 
     entry: {
         main: ['./app/main.jsx'],
-        index: ['./app/index.jsx'],
+        index: ['./app/index.jsx']
     },
 
     output: {

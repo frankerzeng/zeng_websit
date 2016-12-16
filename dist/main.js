@@ -23476,8 +23476,7 @@
 	        return React.createElement(
 	            "h1",
 	            null,
-	            this.props.title,
-	            this.props.name
+	            this.props.title + this.props.name
 	        );
 	    }
 

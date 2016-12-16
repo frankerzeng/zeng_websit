@@ -81,6 +81,13 @@
 	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: Chapter })
 	), document.getElementById('chapterId'));
 
+	// 文章//todo
+	ReactDom.render(_react2.default.createElement(
+	    _reactRouter.Router,
+	    { history: _reactRouter.hashHistory },
+	    _react2.default.createElement(_reactRouter.Route, { path: '/article', component: Chapter })
+	), document.getElementById('chapterId'));
+
 /***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {

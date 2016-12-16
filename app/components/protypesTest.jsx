@@ -9,11 +9,11 @@ var ProductBox = React.createClass({
     // props校验
     propTypes: {
         title: React.PropTypes.any.isRequired,
-        name: React.PropTypes.string.isRequired,
+        name: React.PropTypes.string.isRequired
     },
 
     render: function () {
-        return <h1>{this.props.title}{this.props.name}</h1>
+        return <h1>{this.props.title + this.props.name}</h1>
     }
 
 });
